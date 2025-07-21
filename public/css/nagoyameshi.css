@@ -1,0 +1,256 @@
+body {
+ background-color: #f8fafc;
+ font-family: 'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+ font-size: 14px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: 0.11px;
+}
+
+h1 {
+ font-size: 26px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: -0.13px;
+}
+
+h2 {
+ font-size: 22px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: normal;
+}
+
+h3 {
+ font-size: 18px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: 0.04px;
+}
+
+big {
+ font-size: 16px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: 0.08px;
+}
+
+caption {
+ font-size: 12px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: 0.08px;
+}
+
+label {
+ font-size: 14px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: normal;
+ color: #191919;
+}
+
+.nagoyameshi-login-input {
+ border-radius: 2px;
+ border: solid 1px #b2b2b2;
+ background-color: #ffffff;
+}
+
+.nagoyameshi-check-label {
+ font-size: 12px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: normal;
+ color: #000000;
+}
+
+.nagoyameshi-require-input-label {
+ border-radius: 1px;
+ background-color: #e2001b;
+}
+
+.nagoyameshi-require-input-label-text {
+ font-size: 14px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: normal;
+ color: #ffffff;
+}
+
+.nagoyameshi-submit-button {
+ font-size: 14px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: normal;
+ color: #ffffff;
+ background-color: #0fbe9f;
+}
+
+.nagoyameshi-login-text {
+ font-size: 14px;
+ font-weight: bold;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: normal;
+ letter-spacing: normal;
+ color: #0fbe9f;
+}
+
+.nagoyameshi-header-container {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.nagoyameshi-header-search-input {
+    border: solid 1px #e5e5e5;
+}
+
+.nagoyameshi-header-search-button {
+    background-color: #0fbe9f;
+}
+
+.btn-success {
+    background-color: #0fbe9f;
+    border-color: #0fbe9f;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.page-link {
+    color: #000;
+    background-color: transparent;
+}
+
+.page-link:hover {
+    background-color: #0fbe9f;
+    color: #fff;
+}
+.page-item.active .page-link {
+    background-color: #0fbe9f;
+    border-color: #0fbe9f;
+    color: #fff;
+}
+
+
+.nagoyameshi-header-search-icon {
+    color: #ffffff;
+}
+
+.nagoyameshi-header-fav-icon {
+    color: #191919;
+}
+
+.nagoyameshi-header-shoppingcart-icon {
+    color: #ffffff;
+}
+
+.nagoyameshi-favorite-button {
+  border-radius: 2px;
+  border: solid 1px #0fbe9f;
+  background-color: #ffffff;
+}
+
+.text-favorite {
+  color: #0fbe9f;
+}
+
+.nagoyameshi-sidebar-category-label {
+  width: 156px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #191919;
+}
+.nagoyameshi-favorite-add-cart {
+    border-radius: 2px;
+    color: #ffffff;
+    background-color: #0fbe9f;
+}
+
+.review-score-color {
+  color: #0fbe9f;
+}
+
+.review-score-color:focus {
+  color: #0fbe9f;
+}
+
+.nagoyameshi-delete-submit-button {
+  border-radius: 2px;
+  color: #ffffff;
+  background-color: #d94b0e;
+}
+
+#card-element {
+    background-color: white;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    min-height: 44px;
+    z-index: 1;
+}
+
+.nagoyameshi-btn {
+    background-color: #28a745;
+    border: none;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 5px;
+}
+
+.nagoyameshi-btn-danger {
+    background-color: #28a745;
+    border: none;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 5px;
+}
+.card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.alert {
+    background-color: #fff;
+    border: solid 1px #0fbe9f;
+}
+
+.btn-info {
+    color: #fff;
+    border: none;
+    background-color: #0fbe9f;
+}
+
+.btn-info:hover {
+    background-color: #28a745;
+}
