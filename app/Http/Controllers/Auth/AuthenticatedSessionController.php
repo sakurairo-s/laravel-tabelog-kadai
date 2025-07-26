@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('auth.login'); // ← 一般ユーザー用のBladeファイル（resources/views/auth/login.blade.php）
     }
 
     /**
@@ -25,6 +25,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        $request->guard = 'web'; // ← 明示的にwebガードを指定（省略可だが念のため）
         $request->authenticate();
 
         $request->session()->regenerate();
@@ -40,7 +41,6 @@ class AuthenticatedSessionController extends Controller
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect('/');

@@ -17,17 +17,11 @@
                         </ul>
                     </div>
                 @endif
-@if (session('login_error'))
-    <div class="alert alert-danger">
-        {{ session('login_error') }}
-    </div>
-@endif
 
-
-                <form method="POST" action="{{ url('admin/auth/login') }}">
+                <form method="POST" action="{{ route('admin.login') }}">
                     @csrf
                     <div class="form-group mb-3">
-                            <input type="email" class="form-control" id="email" name="username" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス" autofocus>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス" autofocus>
                     </div>
 
                     <div class="form-group mb-3">

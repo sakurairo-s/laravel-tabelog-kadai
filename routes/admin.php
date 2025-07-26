@@ -1,22 +1,25 @@
 <?php
 
 use Encore\Admin\Facades\Admin;
+use Illuminate\Support\Facades\Route;
 use App\Admin\Controllers\CompanyController;
 use App\Admin\Controllers\SalesReportController;
 use App\Admin\Controllers\AdminUserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 
-Route::group(['prefix' => 'auth', 'middleware' => ['web', 'nocache']], function () {
-    Route::get('login', [\App\Admin\Controllers\AuthController::class, 'showLoginForm']);
-    Route::post('login', [\App\Admin\Controllers\AuthController::class, 'postLogin']);
+// 独自の管理者ログイン画面用ルート
+Route::prefix('admin')->middleware(['web'])->group(function () {
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('admin.login');
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 });
 
+// Laravel-Adminのルートを登録（auth: falseでLaravel-Adminの認証をバイパス）
+Admin::routes(['auth' => false]);
 
-// Laravel-admin のルートを登録（'admin' プレフィックス付き）
-Admin::routes();
-
-// 独自にルート追加したい場合は prefix は不要
-Route::resource('admin/company', CompanyController::class);
-Route::get('sales-report', [SalesReportController::class, 'index']);
-Route::resource('admins', AdminUserController::class);
-
+// 独自の管理者機能ルート
+Route::prefix('admin')->group(function () {
+    Route::resource('company', CompanyController::class);
+    Route::get('sales-report', [SalesReportController::class, 'index']);
+    Route::resource('admins', AdminUserController::class);
+});
