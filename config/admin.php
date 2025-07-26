@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 return [
 
@@ -58,7 +58,7 @@ return [
     */
     'route' => [
 
-        'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
+        'prefix' => 'admin',
 
         'namespace' => 'App\\Admin\\Controllers',
 
@@ -86,7 +86,7 @@ return [
     |
     */
     'title' => 'Admin',
-
+    'dashboard_url' => 'admin', 
     /*
     |--------------------------------------------------------------------------
     | Access via `https`
@@ -110,19 +110,19 @@ return [
     */
     'auth' => [
 
-        //'controller' => App\Admin\Controllers\AuthController::class,
+        'controller' => App\Admin\Controllers\AuthController::class,
 
         'guard' => 'admin',
 
         'guards' => [
             'admin' => [
                 'driver'   => 'session',
-                'provider' => 'admin',
+                'provider' => 'admins', // ← ここを 'admins' に修正
             ],
         ],
 
         'providers' => [
-            'admin' => [
+            'admins' => [               // ← ここも 'admins' に修正
                 'driver' => 'eloquent',
                 'model'  => App\Models\Admin::class,
             ],
@@ -139,6 +139,11 @@ return [
             'auth/login',
             'auth/logout',
         ],
+
+        'login' => [
+            'username' => 'email', // ← ログインに使うカラム名を email に変更
+        ],
+
     ],
 
     /*

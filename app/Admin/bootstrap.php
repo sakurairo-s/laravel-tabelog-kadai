@@ -17,5 +17,10 @@
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
+use Encore\Admin\Facades\Admin;
+use Encore\Admin\Auth\Database\Administrator;
+use Illuminate\Support\Facades\Route;
 
 Encore\Admin\Form::forget(['map', 'editor']);
+
+Admin::routes();

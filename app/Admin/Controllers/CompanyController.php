@@ -7,22 +7,10 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use Encore\Admin\Layout\Content;
 
 class CompanyController extends AdminController
 {
-    protected $title = 'Company';
-
-    // Contentを受け取る index() の定義
-    public function index(Content $content)
-    {
-        $company = \App\Models\Company::first(); // 会社情報を取得
-        
-        return $content
-            ->title('会社情報一覧')
-            ->description('全ての会社情報を表示')
-            ->body(view('admin.company.index', compact('company')));
-    }
+    protected $title = '会社概要';
 
     protected function grid()
     {
@@ -43,22 +31,6 @@ class CompanyController extends AdminController
         return $grid;
     }
 
-    protected function form()
-    {
-        $form = new Form(new Company());
-
-        $form->text('name', '会社名');
-        $form->text('postal_code', '郵便番号');
-        $form->text('address', '住所');
-        $form->text('representative', '代表者');
-        $form->text('establishment_date', '設立日');
-        $form->text('capital', '資本金');
-        $form->text('business', '事業内容');
-        $form->text('number_of_employees', '従業員数');
-
-        return $form;
-    }
-
     protected function detail($id)
     {
         $show = new Show(Company::findOrFail($id));
@@ -76,5 +48,21 @@ class CompanyController extends AdminController
         $show->field('updated_at', '更新日');
 
         return $show;
+    }
+
+    protected function form()
+    {
+        $form = new Form(new Company());
+
+        $form->text('name', '会社名');
+        $form->text('postal_code', '郵便番号');
+        $form->text('address', '住所');
+        $form->text('representative', '代表者');
+        $form->text('establishment_date', '設立日');
+        $form->text('capital', '資本金');
+        $form->text('business', '事業内容');
+        $form->text('number_of_employees', '従業員数');
+
+        return $form;
     }
 }

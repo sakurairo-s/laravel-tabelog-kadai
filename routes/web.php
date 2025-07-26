@@ -16,6 +16,7 @@ use App\Http\Middleware\Subscribed;
 use App\Http\Middleware\NotSubscribed;
 use App\Http\Controllers\Admin\HomeController;
 
+
 // ✅ ← 認証不要の「会社概要ページ」はここに置く
 Route::get('/company', [CompanyController::class, 'index'])->name('company.index');
 
@@ -31,7 +32,7 @@ Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('s
 require __DIR__.'/auth.php';
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
-    Route::get('admin/home', [HomeController::class, 'index'])->name('admin.home');
+    Route::get('home', [HomeController::class, 'index'])->name('home');
 });
 
 // 認証ユーザー用ルート

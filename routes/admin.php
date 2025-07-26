@@ -1,24 +1,22 @@
 <?php
 
-// routes/admin.php
-use Illuminate\Support\Facades\Route;
-use App\Admin\Controllers\CompanyController;
 use Encore\Admin\Facades\Admin;
+use App\Admin\Controllers\CompanyController;
 use App\Admin\Controllers\SalesReportController;
 use App\Admin\Controllers\AdminUserController;
+use Illuminate\Support\Facades\Route;
 
-// Laravel-Admin のルートを登録
+Route::group(['prefix' => 'auth', 'middleware' => ['web', 'nocache']], function () {
+    Route::get('login', [\App\Admin\Controllers\AuthController::class, 'showLoginForm']);
+    Route::post('login', [\App\Admin\Controllers\AuthController::class, 'postLogin']);
+});
+
+
+// Laravel-admin のルートを登録（'admin' プレフィックス付き）
 Admin::routes();
 
-Route::middleware(['web', 'auth']) // 必要なら認証など追加
-    ->prefix('admin')
-    ->group(function () {
-        Route::resource('company', CompanyController::class);
-    });
-
-// stripe売上管理のルートを登録    
-Admin::registerAuthRoutes();
-
+// 独自にルート追加したい場合は prefix は不要
+Route::resource('admin/company', CompanyController::class);
 Route::get('sales-report', [SalesReportController::class, 'index']);
-
 Route::resource('admins', AdminUserController::class);
+

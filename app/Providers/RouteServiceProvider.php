@@ -17,7 +17,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const ADMIN_HOME = 'admin/home';
+    public const HOME = '/shops';
+    public const ADMIN_HOME = '/admin/home';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -29,18 +30,19 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+            // API ルート（必要に応じて）
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
+            // Web ルート（通常ユーザー用）
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web') // ← これを追加
-                ->prefix('admin')
-            ->group(base_path('routes/admin.php'));
-
-            });
+            // 管理画面ルート（adminプレフィックスはAdmin::routes()が担当）
+            Route::middleware('web')
+                ->group(base_path('routes/admin.php'));
+        });
     }
 
     /**
@@ -51,7 +53,9 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+            return Limit::perMinute(60)->by(
+                $request->user()?->id ?: $request->ip()
+            );
         });
     }
 }
