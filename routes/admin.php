@@ -3,7 +3,6 @@
 use Illuminate\Routing\Router;
 use Encore\Admin\Facades\Admin;
 use App\Admin\Controllers\HomeController;
-use App\Admin\Controllers\CompanyController;
 use App\Admin\Controllers\SalesReportController;
 use App\Admin\Controllers\AdminUserController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
@@ -32,7 +31,6 @@ Route::prefix('admin')
     ->middleware('auth:admin')
     ->as('admin.')
     ->group(function () {
-        Route::resource('company', CompanyController::class);
         Route::get('sales-report', [SalesReportController::class, 'index']);
         Route::resource('admins', AdminUserController::class);
     });
