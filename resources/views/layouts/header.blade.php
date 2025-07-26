@@ -26,7 +26,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('admin.home') }}">ホーム</a>
+                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">ホーム</a>
                             <a class="dropdown-item" href="{{ route('admin.users.index') }}">会員一覧</a>
                             <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">店舗一覧</a>
                             <a class="dropdown-item" href="{{ route('admin.categories.index') }}">カテゴリ一覧</a>

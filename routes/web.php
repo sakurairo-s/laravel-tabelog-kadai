@@ -32,7 +32,7 @@ Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('s
 require __DIR__.'/auth.php';
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('home', [HomeController::class, 'index'])->name('dashboard');
 });
 
 // 認証ユーザー用ルート
