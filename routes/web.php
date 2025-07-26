@@ -14,7 +14,6 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\Subscribed;
 use App\Http\Middleware\NotSubscribed;
-use App\Http\Controllers\Admin\HomeController;
 
 
 // ✅ ← 認証不要の「会社概要ページ」はここに置く
@@ -31,9 +30,6 @@ Route::get('/shops/{shop}/reviews', [ReviewController::class, 'index'])->name('s
 // 認証関連ルート
 require __DIR__.'/auth.php';
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
-    Route::get('home', [HomeController::class, 'index'])->name('dashboard');
-});
 
 // 認証ユーザー用ルート
 Route::middleware(['auth', 'verified'])->group(function () {

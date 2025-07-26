@@ -18,7 +18,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('admin.login') }}">
+                <form method="POST" action="{{ route('custom_admin.login.post') }}">
                     @csrf
                     <div class="form-group mb-3">
                             <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス" autofocus>

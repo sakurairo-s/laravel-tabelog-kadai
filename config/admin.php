@@ -110,8 +110,6 @@ return [
     */
     'auth' => [
 
-        'controller' => App\Admin\Controllers\AuthController::class,
-
         'guard' => 'admin',
 
         'guards' => [
@@ -132,12 +130,14 @@ return [
         'remember' => true,
 
         // Redirect to the specified URI when user is not authorized.
-        'redirect_to' => 'auth/login',
+        'redirect_to' => 'login',
 
         // The URIs that should be excluded from authorization.
         'excepts' => [
-            'auth/login',
-            'auth/logout',
+            'admin/login',
+            'admin/logout',
+            'login',
+            'logout',
         ],
 
         'login' => [

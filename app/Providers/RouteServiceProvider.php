@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/shops';
-    public const ADMIN_HOME = '/admin/home';
+    public const ADMIN_HOME = '/admin';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -41,8 +41,6 @@ class RouteServiceProvider extends ServiceProvider
 
             // 管理画面ルート（adminプレフィックスはAdmin::routes()が担当）
    Route::middleware('web')
-        ->prefix('admin')          // ← ここを追加
-        ->as('admin.')             // ← ルート名に admin. を付ける
         ->group(base_path('routes/admin.php'));
         });
     }

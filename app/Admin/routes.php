@@ -20,7 +20,6 @@ Route::group([
     'as'            => config('admin.route.prefix') . '.',
 ], function (Router $router) {
 
-    $router->get('/', 'HomeController@index')->name('home');
     $router->resource('categories', CategoryController::class);
     $router->resource('shops', ShopController::class);
     $router->resource('users', UserController::class);
