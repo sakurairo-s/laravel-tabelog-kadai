@@ -40,8 +40,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             // 管理画面ルート（adminプレフィックスはAdmin::routes()が担当）
-            Route::middleware('web')
-                ->group(base_path('routes/admin.php'));
+   Route::middleware('web')
+        ->prefix('admin')          // ← ここを追加
+        ->as('admin.')             // ← ルート名に admin. を付ける
+        ->group(base_path('routes/admin.php'));
         });
     }
 
