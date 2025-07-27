@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm nagoyameshi-header-container">
    <div class="container">
-       <a class="navbar-brand" href="{{ url('/') }}">
+       <a class="navbar-brand" href="{{ route('shops.index') }}">
        <img src="{{asset('img/logo.png')}}">
        </a>
         <form action="{{ route('shops.index') }}" method="GET" class="row g-1">
