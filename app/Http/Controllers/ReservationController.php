@@ -27,6 +27,16 @@ class ReservationController extends Controller
             'number_of_people' => 'required|numeric|between:1,50',
         ]);
 
+        // バリデーション通過後に日時を結合
+        $datetime = \Carbon\Carbon::parse($request->reservation_date . ' ' . $request->reservation_time);
+
+        // 今より前の日時を選んでいたらリダイレクト＋エラー
+        if ($datetime->lt(now())) {
+            return back()
+                ->withErrors(['reservation_time' => '過去の日時は選択できません。'])
+                ->withInput();
+        }
+
         $reservation = new Reservation();
         $reservation->reserved_datetime = $request->input('reservation_date') . ' ' . $request->input('reservation_time');
         $reservation->number_of_people = $request->input('number_of_people');
