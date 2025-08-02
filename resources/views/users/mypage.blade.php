@@ -181,14 +181,12 @@
                        </div>
                    </div>
                </div>
-               <div class="d-flex align-items-center">
-                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                       <i class="fas fa-chevron-right fa-2x"></i>
-                   </a>
-
-                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                       @csrf
-                   </form>
+                <form action="{{ route('logout') }}" method="POST" class="d-flex align-items-center">
+                    @csrf
+                    <button type="submit" class="btn p-0 border-0 bg-transparent d-flex align-items-center text-decoration-none text-primary">
+                        <i class="fas fa-chevron-right fa-2x"></i>
+                    </button>
+                </form>
                </div>
            </div>
        </div>
