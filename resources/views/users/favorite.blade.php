@@ -19,7 +19,7 @@
                 </a>
                 <div>
                     <h5 class="nagoyameshi-favorite-item-text">{{ $favorite_shop->name }}</h5>
-                    <h6 class="nagoyameshi-favorite-item-text">&yen;{{ $favorite_shop->price_min }}</h6>
+                    <!-- <h6 class="nagoyameshi-favorite-item-text">&yen;{{ $favorite_shop->price_min }}</h6> -->
                 </div>
             </div>
             <div class="col-md-3 d-flex align-items-center justify-content-end">
