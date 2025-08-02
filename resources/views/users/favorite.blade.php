@@ -18,8 +18,10 @@
                     @endif
                 </a>
                 <div>
+                    <div class="d-flex justify-content-center align-items-center w-100" style="height: 100%;">
                     <h5 class="nagoyameshi-favorite-item-text">{{ $favorite_shop->name }}</h5>
                     <!-- <h6 class="nagoyameshi-favorite-item-text">&yen;{{ $favorite_shop->price_min }}</h6> -->
+                    </div>
                 </div>
             </div>
             <div class="col-md-3 d-flex align-items-center justify-content-end">
