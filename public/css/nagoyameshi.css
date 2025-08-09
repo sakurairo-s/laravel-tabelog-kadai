@@ -1,4 +1,4 @@
-body {
+body { 
  background-color: #f8fafc;
  font-family: 'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
  font-size: 14px;
@@ -7,6 +7,7 @@ body {
  font-style: normal;
  line-height: normal;
  letter-spacing: 0.11px;
+ margin: 0;
 }
 
 h1 {
@@ -176,17 +177,6 @@ label {
   color: #0fbe9f;
 }
 
-.nagoyameshi-sidebar-category-label {
-  width: 156px;
-  height: 20px;
-  font-size: 13px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #191919;
-}
 .nagoyameshi-favorite-add-cart {
     border-radius: 2px;
     color: #ffffff;
@@ -253,4 +243,262 @@ label {
 
 .btn-info:hover {
     background-color: #28a745;
+}
+
+/* ======================== */
+/* スライダー全体のスタイル */
+/* ======================== */
+.slider {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+/* スライダーの表示領域（インタラクション無効化） */
+.slider-viewport {
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* スライダーのトラック（スライドを横並びに配置） */
+.slider-items {
+  display: flex;
+}
+
+/* 各スライドを均等幅に設定 */
+.slider-slide {
+  flex: 1;
+}
+
+/* ======================== */
+/* スライド内の画像のスタイル */
+/* ======================== */
+/* スライド内の画像を比率固定で表示 */
+.slider-image {
+  position: relative;
+  aspect-ratio: 1480/600;
+}
+.slider-image img {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media print, (min-width: 768px) {
+  .slider-nav button {
+    width: 60px;
+    height: 60px;
+    transform: translateY(-30px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .slider-nav button {
+    width: 50px;
+    height: 50px;
+    transform: translateY(-25px);
+  }
+}
+
+/* 矢印アイコンのスタイル */
+.slider-nav button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  background: #fff;
+  -webkit-mask: url(../images/slider_arrow.svg) 0 0/contain no-repeat;
+          mask: url(../images/slider_arrow.svg) 0 0/contain no-repeat;
+  transition: background-color 300ms cubic-bezier(.215, .61, .355, 1);
+}
+@media print, (min-width: 768px) {
+  .slider-nav button::before {
+    width: 25px;
+    height: 20px;
+    margin-top: -10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .slider-nav button::before {
+    width: 19px;
+    height: 15px;
+    margin-top: -7.5px;
+  }
+}
+
+/* 矢印ボタンのホバー・アクティブ状態のスタイル */
+@media print, (min-width: 768px) {
+  .slider-nav button:hover::before,
+  .slider-nav button:active::before {
+    background: #c11a51;
+  }
+}
+
+/* 左矢印ボタンのスタイル */
+.slider-nav button:nth-child(1) {
+  left: 0;
+}
+.slider-nav button:nth-child(1)::before {
+  transform: scaleX(-1);
+}
+@media print, (min-width: 768px) {
+  .slider-nav button:nth-child(1)::before {
+    left: 15px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .slider-nav button:nth-child(1)::before {
+    left: 10px;
+  }
+}
+
+/* 右矢印ボタンのスタイル */
+.slider-nav button:nth-child(2) {
+  right: 0;
+}
+@media print, (min-width: 768px) {
+  .slider-nav button:nth-child(2)::before {
+    right: 15px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .slider-nav button:nth-child(2)::before {
+    right: 10px;
+  }
+}
+
+/* ======================== */
+/* インジケーターのスタイル */
+/* ======================== */
+.slider-indicators {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;             
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 6;  
+}
+@media print, (min-width: 768px) {
+  .slider-indicators {
+    margin-top: calc(56.21622% - 30px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .slider-indicators {
+    margin-top: calc(56.21622% - 25px);
+  }
+}
+
+/* インジケーターのボタンスタイル */
+.slider-indicators button {
+  display: block;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+/* インジケーターアイコンのスタイル */
+.slider-indicators button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: #fff;
+  transition: background-color 300ms cubic-bezier(.215, .61, .355, 1), transform 300ms cubic-bezier(.215, .61, .355, 1);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+}
+
+/* インジケーターのホバー・アクティブ状態 */
+@media print, (min-width: 768px) {
+  .slider-indicators button:hover::before,
+  .slider-indicators button:active::before {
+    background: #b0c4de;
+  }
+}
+
+/* 現在のスライドを示すインジケーターのスタイル */
+.slider-indicators button.is-current {
+  pointer-events: none;
+}
+
+/* アクティブ状態のインジケーター */
+.slider-indicators button.is-current::before {
+  background: #b0c4de;
+  transform: scale(1.5);
+  box-shadow: none;
+}
+
+/* ======================== */
+/* グラブカーソルの設定 */
+/* ======================== */
+/* フリック操作中のカーソル変更 */
+.slider.is-grabbing,
+.slider.is-grabbing * {
+  cursor: grabbing !important;
+}
+
+/* 矢印アイコンの色とサイズ変更 */
+.slider-nav button i {
+  color: #fff;
+  font-size: 2rem;
+}
+
+
+.slider-nav button {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.4); /* 半透明の黒背景 */
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.slider-nav button:hover {
+  background: rgba(0,0,0,0.6); /* ホバー時に少し濃く */
+}
+
+.slider-nav {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;  
+  justify-content: space-between;
+  padding: 0 8px;
+  z-index: 5;
+  pointer-events: none;
+}
+.sidebar { 
+  min-width: 160px;
+  position: relative;
+  z-index: 2; 
+}
+.sidebar-list { 
+  display: flex; 
+  flex-direction: column; 
+  gap: .25rem; 
 }

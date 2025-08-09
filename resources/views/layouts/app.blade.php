@@ -22,7 +22,7 @@
         @component('components.header')
         @endcomponent
 
-        <main class="py-4 mb-5">
+        <main class="pt-0 pd-4 mb-5">
             @yield('content')
         </main>
 
