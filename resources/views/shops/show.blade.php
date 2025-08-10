@@ -4,6 +4,12 @@
 
 <div class="d-flex justify-content-center">
    <div class="row w-75">
+        <nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{{ route('shops.index') }}">ホーム</a></li>
+                <li class="breadcrumb-item active" aria-current="page">店舗詳細</li>
+            </ol>
+        </nav>    
        <div class="col-5 offset-1">
             @if ($shop->image !== "")
                 <img src="{{ asset($shop->image) }}" class="img-thumbnail">
