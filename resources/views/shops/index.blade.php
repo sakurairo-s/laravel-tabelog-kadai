@@ -44,20 +44,11 @@
   <div class="slider-indicators"></div>
 </div>
 
-{{-- ===== メインレイアウト ===== --}}
-{{-- <div class="container">--}}
- {{-- <div class="row g-3"> --}}
+{{-- ===== メイン（サイドバーなし） ===== --}}
+<div class="container">
+  <div class="row g-3">
+    <div class="col-12 col-lg-10 mx-auto">
 
-{{-- ===== サイドバー ===== --}}
-    {{-- <div class="col-auto d-flex justify-content-center ps-0 pe-0">--}}
-        {{-- @include('components.sidebar', ['categories' => $categories])--}}
-     {{-- </div> --}}
-
-
-    {{-- メイン（残り全部） --}}
-<div class="container"> 
-  <div class="col-12 col-md-9 col-lg-10">
-      {{-- 挨拶・検索など既存の内容 --}}
       @include('components.flash_message')
       <br>
       @if(Auth::check())
@@ -118,13 +109,16 @@
         </div>
       </div>
 
-      {{-- 一覧 --}}
-      <div class="row">
+      {{-- 一覧（中央寄せ） --}}
+      <div class="row g-3 justify-content-center">
         @foreach($shops as $shop)
-          <div class="col-md-3 mb-4">
-            <div class="card h-100">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+            <div class="card h-100 w-100">
               <a href="{{ route('shops.show', $shop) }}">
-                <img src="{{ asset($shop->image ?: 'img/hitumabusi.jpg') }}" class="card-img-top" alt="shop image" style="height:160px;object-fit:cover;">
+                <img src="{{ asset($shop->image ?: 'img/hitumabusi.jpg') }}"
+                     class="card-img-top"
+                     alt="shop image"
+                     style="height:160px;object-fit:cover;">
               </a>
               <div class="card-body">
                 <h5 class="card-title">{{ $shop->name }}</h5>
@@ -138,9 +132,11 @@
         @endforeach
       </div>
 
-      <div class="mt-4">
+      {{-- ページネーションも中央に --}}
+      <div class="mt-4 d-flex justify-content-center">
         {{ $shops->appends(request()->query())->links() }}
       </div>
+
     </div>
   </div>
 </div>

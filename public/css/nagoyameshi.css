@@ -454,8 +454,3 @@ label {
 .slider-items {
   width: 100%;
 }
-
-.container {
-  display: flex;
-  justify-content: center;
-}
