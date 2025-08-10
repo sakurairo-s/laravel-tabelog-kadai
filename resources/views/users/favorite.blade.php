@@ -3,6 +3,13 @@
 @section('content')
 <div class="container d-flex justify-content-center mt-3">
     <div class="w-75">
+        <nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{{ route('shops.index') }}">ホーム</a> > <a href="{{ route('mypage') }}">マイページ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">お気に入り一覧</li>
+            </ol>
+        </nav>
+        
         <h1>お気に入り一覧</h1>
 
         <hr>

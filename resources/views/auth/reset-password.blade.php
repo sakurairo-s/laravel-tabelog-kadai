@@ -1,4 +1,20 @@
 <x-guest-layout>
+    {{-- パンくず --}}
+    <nav class="mb-6 text-sm" aria-label="Breadcrumb">
+        <ol class="flex flex-wrap items-center gap-1 text-gray-500">
+            <li>
+                <a href="{{ route('shops.index') }}" class="hover:text-gray-700">ホーム</a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li>
+                <a href="{{ route('login') }}" class="hover:text-gray-700">ログイン</a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li class="text-gray-900 font-medium" aria-current="page">
+                パスワード再設定
+            </li>
+        </ol>
+    </nav>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 

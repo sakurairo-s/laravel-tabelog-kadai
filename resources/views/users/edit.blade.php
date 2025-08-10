@@ -4,8 +4,9 @@
 <div class="container">
    <div class="row justify-content-center">
        <div class="col-md-5">
+        <br>
            <span>
-               <a href="{{ route('mypage') }}">マイページ</a> > 会員情報の編集
+               <a href="{{ route('shops.index') }}">ホーム</a> > <a href="{{ route('mypage') }}">マイページ</a> > 会員情報の編集
            </span>
 
            <h1 class="mt-3 mb-3">会員情報の編集</h1>

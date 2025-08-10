@@ -12,12 +12,19 @@
 <div class="container nagoyameshi-container pb-5">
     <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-8">
-            <nav class="my-3" aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="{{ route('shops.index') }}">ホーム</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">お支払い方法変更</li>
-                </ol>
-            </nav>
+<nav class="my-3" aria-label="breadcrumb">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item">
+      <a href="{{ route('shops.index') }}">ホーム</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="{{ route('mypage') }}">マイページ</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      お支払い方法変更
+    </li>
+  </ol>
+</nav>
 
             <h1 class="mb-3 text-center">お支払い方法の変更</h1>
 

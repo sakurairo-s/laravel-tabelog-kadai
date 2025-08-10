@@ -6,7 +6,7 @@
             <div class="col-xl-5 col-lg-6 col-md-8">
                 <nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="{{ route('shops.index') }}">ホーム</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('shops.index') }}">ホーム</a> > <a href="{{ route('mypage') }}">マイページ</a></li>
                         <li class="breadcrumb-item active" aria-current="page">有料プラン解約</li>
                     </ol>
                 </nav>
