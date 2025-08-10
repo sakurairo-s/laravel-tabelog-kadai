@@ -19,6 +19,11 @@
                 <img src="img/img02.jpg" alt="名古屋グルメの天むすの画像">
               </div>
             </div>
+            <div class="slider-slide">
+              <div class="slider-image">
+                <img src="img/img03.jpg" alt="名古屋グルメの天むす味噌煮込みうどんの画像">
+              </div>
+            </div>
           </div>
         </div>
       </div>
